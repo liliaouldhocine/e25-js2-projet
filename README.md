@@ -89,15 +89,15 @@ Voici une **structure détaillée pour le devis du projet** :
 
 ## **5. Estimation des Coûts LOL**
 
-| Poste                   | Temps (jours) | Coût (€/jour) | Total (€)  |
-| ----------------------- | ------------- | ------------- | ---------- |
-| **Frontend**            | 14            | 500           | 7 000      |
-| **Backend**             | 12            | 500           | 6 000      |
-| **UI/UX**               | 5             | 400           | 2 000      |
-| **Tests & Déploiement** | 3             | 500           | 1 500      |
-| **Total HT**            |               |               | **16 500** |
-| **TVA (20%)**           |               |               | 3 300      |
-| **Total TTC**           |               |               | **19 800** |
+| Poste                   | Temps (jours) | Coût ($CAD$/jour) | Total ($CAD) |
+| ----------------------- | ------------- | ----------------- | ------------ |
+| **Frontend**            | 14            | 500               | 11 000       |
+| **Backend**             | 12            | 500               | 9 000        |
+| **UI/UX**               | 5             | 400               | 4 000        |
+| **Tests & Déploiement** | 3             | 500               | 2 700        |
+| **Total HT**            |               |                   | **26 700**   |
+| **TVA (20%)**           |               |                   | 5 100        |
+| **Total TTC**           |               |                   | **31 800**   |
 
 ---
 
