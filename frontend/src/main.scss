@@ -37,6 +37,7 @@
   min-height: 41rem;
   min-width: 30rem;
   cursor: pointer;
+  position: relative;
 
   &:hover img {
     transform: scale(1.1);
@@ -49,5 +50,28 @@
   img {
     object-fit: cover;
     transition: transform 1s;
+  }
+
+  .x_delete,
+  .x_edit {
+    position: absolute;
+    top: 12px;
+    width: 24px;
+    height: 24px;
+    color: var(--text);
+    // background-color: var(--primary);
+    line-height: 24px;
+    text-align: center;
+    z-index: 99999;
+    &:hover {
+      background-color: var(--error);
+      color: var(--divider);
+    }
+  }
+  .x_edit {
+    right: 12px;
+  }
+  .x_delete {
+    right: 40px;
   }
 }

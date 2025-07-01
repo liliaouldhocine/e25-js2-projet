@@ -1,6 +1,6 @@
 // Packages NPM
 import express from "express";
-import cors from "cors";
+import cors from "cors"; // Pour l'interprétation des headers
 import morgan from "morgan";
 
 // Modules natifs

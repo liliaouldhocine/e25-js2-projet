@@ -12,7 +12,7 @@ import {
   rechercheDeProduits,
 } from "../controllers/produit.controllers.js";
 
-// POST / - Créer un produit
+// POST /products - Créer un produit
 router.post("/", creerProduit);
 
 // GET /products - Lister tous les produits

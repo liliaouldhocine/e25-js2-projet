@@ -1,9 +1,7 @@
 import "../assets/styles/styles.scss";
 import "./produit.scss";
-import { produits } from "../../data/products.js";
 
 const content = document.querySelector(".content");
-console.log(content, produits);
 
 const getProductIdFromUrl = () => {
   const urlParams = new URLSearchParams(window.location.search);
@@ -31,11 +29,15 @@ const displayProduct = (product) => {
 // Usage when the product page loads
 window.addEventListener("DOMContentLoaded", () => {
   const productId = getProductIdFromUrl();
-  const produit = produits.find((produit) => produit.id == productId);
+  fetchProduit(productId);
+});
 
-  if (produit) {
+const fetchProduit = async (id) => {
+  try {
+    const response = await fetch(`http://localhost:5252/products/${id}`);
+    let produit = await response.json();
     displayProduct(produit);
-  } else {
+  } catch (e) {
     window.location.href = "/";
   }
-});
+};

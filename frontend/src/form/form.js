@@ -1,18 +1,71 @@
+import { env } from "../config/env.js";
 import "../assets/styles/styles.scss";
 import "./form.scss";
 
 const form = document.querySelector("form");
 const errorElement = document.querySelector("#errors");
+const btnCancel = document.querySelector(".btn-secondary");
+let productId;
 let errors = [];
+
+const initForm = async () => {
+  const params = new URL(window.location.href);
+  productId = params.searchParams.get("id");
+  if (productId) {
+    const response = await fetch(`${env.BACKEND_PRODUCTS_URL}/${productId}`);
+    if (response.status < 300) {
+      const produit = await response.json();
+      fillForm(produit);
+    }
+  }
+};
+
+initForm();
+
+const fillForm = (produit) => {
+  const nom = document.querySelector('input[name="nom"]');
+  const maison = document.querySelector('input[name="maison"]');
+  const prix = document.querySelector('input[name="prix"]');
+  const image = document.querySelector('input[name="image"]');
+  const description = document.querySelector("textarea");
+  nom.value = produit.nom || "";
+  maison.value = produit.maison || "";
+  prix.value = produit.prix || "";
+  image.value = produit.image || "";
+  description.value = produit.description || "";
+};
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const formData = new FormData(form);
-  const article = Object.fromEntries(formData.entries());
-  if (formIsValid(article)) {
-    const json = JSON.stringify(article);
-    // Nous ferons la requête ici !
-    // Nous créerons un serveur node, et écrirons sur un fichier local
+  const produit = Object.fromEntries(formData.entries());
+  if (formIsValid(produit)) {
+    try {
+      const json = JSON.stringify(produit);
+      let response;
+      if (productId) {
+        response = await fetch(`${env.BACKEND_PRODUCTS_URL}/${productId}`, {
+          method: "PUT",
+          body: json,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+      } else {
+        response = await fetch(env.BACKEND_PRODUCTS_URL, {
+          method: "POST",
+          body: json,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+      }
+      if (response.status < 299) {
+        window.location.assign("/index.html");
+      }
+    } catch (e) {
+      console.error("e : ", e);
+    }
   }
 });
 
@@ -81,3 +134,7 @@ const formIsValid = (article) => {
     return true;
   }
 };
+
+btnCancel.addEventListener("click", () => {
+  window.location.assign("/index.html");
+});
