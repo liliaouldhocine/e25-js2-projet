@@ -41,6 +41,7 @@ export default class JSONArrayDatabase {
   async insert(item) {
     const newItem = {
       ...item,
+      role: "user",
       id: uuidv7(),
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),

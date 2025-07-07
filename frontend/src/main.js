@@ -3,9 +3,10 @@ import "./main.scss";
 import { env } from "./config/env.js";
 import { Alert } from "./components/alert/index.js";
 import { divRemove } from "./components/divRemove/index.js";
+import getLink from "./components/navigation/index.js";
 
 const content = document.querySelector(".content");
-
+getLink("index");
 const displayProduits = (produits) => {
   const productsContainer = document.createElement("div");
   productsContainer.className = "products-container";
@@ -25,7 +26,7 @@ const createProductElement = (produit, index) => {
   div.innerHTML = `
     <i data-id=${produit.id}  class="x_delete fa-solid fa-trash"></i>
     <i data-id=${produit.id} class="x_edit fa-solid fa-pen-to-square"></i>
-    <a href="/produit/produit.html?id=${produit.id}">
+    <a href="/produit/index.html?id=${produit.id}">
       <div class="product-container">
         <div class="overflow">
           <img src="${produit.image}" alt="${produit.nom}">
@@ -46,7 +47,7 @@ const addEditDeleteEvents = (container) => {
     button.addEventListener("click", (event) => {
       const target = event.target;
       const productId = target.dataset.id;
-      window.location.assign(`/form/form.html?id=${productId}`);
+      window.location.assign(`/produit/form/index.html?id=${productId}`);
     });
   });
 

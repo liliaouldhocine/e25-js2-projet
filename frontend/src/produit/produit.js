@@ -1,5 +1,8 @@
 import "../assets/styles/styles.scss";
 import "./produit.scss";
+import getLink from "../../components/navigation/index.js";
+
+getLink("product");
 
 const content = document.querySelector(".content");
 

@@ -28,5 +28,14 @@
     "role": "client",
     "estActif": true,
     "dateInscription": "2025-06-10T19:01:23.369Z"
+  },
+  {
+    "fullName": "Lilia Ould Hocine",
+    "email": "liliaohl@gmail.com",
+    "password": "$2b$12$RG.Y3RS.B4rb4SD9g4eNNuXdB2UUq8LgvgnZ0qjpVEjwIJiGb39z.",
+    "role": "user",
+    "id": "0197e1b5-410e-7718-9c83-83b94c33c472",
+    "createdAt": "2025-07-06T21:47:21.742Z",
+    "updatedAt": "2025-07-06T21:47:21.742Z"
   }
 ]

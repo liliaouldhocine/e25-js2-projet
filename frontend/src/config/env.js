@@ -5,4 +5,6 @@ export const env = {
   BACKEND_PRODUCTS_URL:
     import.meta.env.VITE_BACKEND_PRODUCTS_URL ||
     "http://localhost:5252/products",
+  BACKEND_AUTH_URL:
+    import.meta.env.VITE_BACKEND_AUTH_URL || "http://localhost:5252/auth",
 };

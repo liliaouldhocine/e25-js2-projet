@@ -4,6 +4,7 @@
 @use "./partials/classes" as *;
 @use "./partials/utils" as *;
 @use "./partials/media-queries" as *;
+@use "./partials/form" as *;
 
 .container {
   min-height: 100vh;

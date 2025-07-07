@@ -1,4 +1,5 @@
 import JSONArrayDatabase from "../JSONArrayDatabase.js";
+import bcrypt from "bcryptjs";
 
 const usersDB = new JSONArrayDatabase("users.json");
 
@@ -9,7 +10,7 @@ export default class User {
     if (existingUser) {
       throw new Error("Email already in use");
     }
-
+    userData.password = await bcrypt.hash(userData.password, 12);
     return usersDB.insert(userData);
   }
 
@@ -25,6 +26,7 @@ export default class User {
         throw new Error("Email already in use");
       }
     }
+    updates.password = await bcrypt.hash(updates.password, 12);
     return usersDB.update(id, updates);
   }
 
@@ -38,5 +40,10 @@ export default class User {
 
   static async findAll() {
     return usersDB.findAll();
+  }
+
+  // // Méthode pour comparer les mots de passe
+  static async comparePassword(candidatePassword, userPassword) {
+    return await bcrypt.compare(candidatePassword, userPassword);
   }
 }

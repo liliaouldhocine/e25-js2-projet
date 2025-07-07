@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,100..1000;1,100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/cacbcc77eb.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="module" src="./inscription.js"></script>
+    <title>Projet - inscription</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <a class="header-brand" href="/">Parfums</a>
+        <ul id="menu-register"></ul>
+      </header>
+      <div class="content">
+        <form id="registerForm">
+          <h2>Inscription</h2>
+          <div class="form-group">
+            <label for="fullName">Nom complet</label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              required
+              minlength="3"
+            />
+            <span class="text-error" id="nameError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Adresse email</label>
+            <input type="email" id="email" name="email" required />
+            <span class="text-error" id="emailError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              minlength="6"
+            />
+            <div id="passwordStrength" class="password-strength"></div>
+            <span class="text-error" id="passwordError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirmer le mot de passe</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              required
+            />
+            <span class="text-error" id="confirmPasswordError"></span>
+          </div>
+
+          <div class="form-btn-container">
+            <button class="btn btn-primary">S'inscrire</button>
+          </div>
+          <div>
+            (*) Déjà un compte?
+            <a href="../connexion/index.html"
+              ><i><b>Se connecter</b></i></a
+            >
+          </div>
+        </form>
+      </div>
+      <footer>© Parfums</footer>
+    </div>
+  </body>
+</html>

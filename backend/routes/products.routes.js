@@ -10,10 +10,11 @@ import {
   metterAJourLeStock,
   supprimerUnProduit,
   rechercheDeProduits,
-} from "../controllers/produit.controllers.js";
+} from "../controllers/produit.controller.js";
+import { protect, restrictTo } from "../middlewares/auth.js";
 
 // POST /products - Créer un produit
-router.post("/", creerProduit);
+router.post("/", protect, restrictTo("admin"), creerProduit);
 
 // GET /products - Lister tous les produits
 router.get("/", listerTousLesProduits);
@@ -25,13 +26,13 @@ router.get("/available", produitsDisponibles);
 router.get("/:id", obtenirUnProduit);
 
 // PUT /products/:id - Mettre à jour un produit
-router.put("/:id", mettreAJourUnProduit);
+router.put("/:id", protect, restrictTo("admin"), mettreAJourUnProduit);
 
 // PATCH /products/:id/stock - Mettre à jour le stock
-router.patch("/:id/stock", metterAJourLeStock);
+router.patch("/:id/stock", protect, restrictTo("admin"), metterAJourLeStock);
 
 // DELETE /products/:id - Supprimer un produit
-router.delete("/:id", supprimerUnProduit);
+router.delete("/:id", protect, restrictTo("admin"), supprimerUnProduit);
 
 // GET /products/search/:query - Recherche de produits
 router.get("/search/:query", rechercheDeProduits);

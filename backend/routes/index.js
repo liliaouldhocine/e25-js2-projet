@@ -3,6 +3,7 @@ import express from "express";
 
 import produitRoutes from "./products.routes.js";
 import usersRoutes from "./users.routes.js";
+import authRoutes from "./auth.routes.js";
 
 const router = express.Router();
 
@@ -23,5 +24,6 @@ router.get("/", (req, res) => {
 
 router.use("/products", produitRoutes);
 router.use("/users", usersRoutes);
+router.use("/auth", authRoutes);
 
 export default router;
