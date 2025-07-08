@@ -4,8 +4,11 @@ import { env } from "./config/env.js";
 import { Alert } from "./components/alert/index.js";
 import { divRemove } from "./components/divRemove/index.js";
 import getNavMenu from "./components/navigation/index.js";
+import { getCurrentUser } from "../utils/auth.js";
 
 getNavMenu("index");
+const user = getCurrentUser();
+const isAdmin = user && user.role === "admin";
 
 const content = document.querySelector(".content");
 
@@ -25,9 +28,10 @@ const displayProduits = (produits) => {
 const createProductElement = (produit, index) => {
   const div = document.createElement("div");
   div.className = "product card overflow";
+  const adminEdit = `<i data-id=${produit.id}  class="x_delete fa-solid fa-trash"></i>
+    <i data-id=${produit.id} class="x_edit fa-solid fa-pen-to-square"></i>`;
   div.innerHTML = `
-    <i data-id=${produit.id}  class="x_delete fa-solid fa-trash"></i>
-    <i data-id=${produit.id} class="x_edit fa-solid fa-pen-to-square"></i>
+    ${isAdmin ? adminEdit : ""}
     <a href="/produit/index.html?id=${produit.id}">
       <div class="product-container">
         <div class="overflow">
