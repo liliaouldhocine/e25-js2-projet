@@ -40,8 +40,9 @@ export async function checkAuth(requiredRole) {
     }
 
     const user = await response.json();
+    console.log(user);
 
-    if (requiredRole && !requiredRole.includes(user.role)) {
+    if (requiredRole && !requiredRole.includes(user.user.role)) {
       window.location.href = "/index.html";
       return false;
     }

@@ -1,8 +1,8 @@
 import "../assets/styles/styles.scss";
 import "./produit.scss";
-import getLink from "../../components/navigation/index.js";
+import getNavMenu from "../../components/navigation/index.js";
 
-getLink("product");
+getNavMenu("product");
 
 const content = document.querySelector(".content");
 

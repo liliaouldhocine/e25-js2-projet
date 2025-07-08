@@ -23,7 +23,7 @@ export const register = asyncHandler(async (req, res, next) => {
   });
 
   // Générer le token JWT
-  const token = generateToken(user.id);
+  const token = generateToken(user);
 
   res.status(201).json({
     success: true,
@@ -32,6 +32,7 @@ export const register = asyncHandler(async (req, res, next) => {
       id: user.id,
       fullName: user.fullName,
       email: user.email,
+      role: user.role,
     },
   });
 });
@@ -62,9 +63,9 @@ export const login = asyncHandler(async (req, res, next) => {
   }
 
   // Générer le token JWT
-  const token = generateToken(user.id);
+  const token = generateToken(user);
   console.log(user.id, token);
-
+  console.log(user);
   res.status(200).json({
     success: true,
     token,

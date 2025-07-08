@@ -199,5 +199,16 @@
     "id": "0197c73f-732a-7375-a02f-f24831f1fe16",
     "createdAt": "2025-07-01T18:28:33.707Z",
     "updatedAt": "2025-07-01T18:28:33.707Z"
+  },
+  {
+    "nom": "Angels' Share",
+    "maison": "By Kilian",
+    "prix": "385",
+    "image": "http://localhost:5252/assets/images/products/KILIAN-ANGELS-SHARE-scaled.jpg",
+    "description": "Angels' Share by By Kilian is a Oriental Vanilla fragrance for women and men. Angels' Share was launched in 2020. The nose behind this fragrance is Benoist Lapouza. Top note is Cognac; middle notes are Cinnamon, Tonka Bean, Oak and Hedione; base notes are Vanilla, Praline, Sandalwood and Candied Almond.",
+    "role": "user",
+    "id": "0197e83c-680e-7243-80dc-cf32eee5fe49",
+    "createdAt": "2025-07-08T04:12:42.383Z",
+    "updatedAt": "2025-07-08T04:12:42.383Z"
   }
 ]

@@ -1,10 +1,10 @@
 import { env } from "../../config/env.js";
 import "../../assets/styles/styles.scss";
 import "./inscription.scss";
-import getLink from "../../components/navigation/index.js";
+import getNavMenu from "../../components/navigation/index.js";
 import fetchWithAuth from "../../../api/api.js";
 
-getLink("register");
+getNavMenu("register");
 
 export function setupRegisterForm() {
   const form = document.getElementById("registerForm");

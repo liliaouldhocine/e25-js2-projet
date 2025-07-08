@@ -1,0 +1,24 @@
+.content {
+  display: flex;
+  justify-content: center;
+
+  .user-container {
+    display: flex;
+    width: 75rem;
+    flex-direction: row;
+  }
+
+  .user {
+    display: flex;
+  }
+
+  .user-details {
+    display: flex;
+    flex-direction: column;
+    .fullName h2 {
+      margin-top: 0;
+      font-weight: 300;
+      font-size: 1.5rem;
+    }
+  }
+}

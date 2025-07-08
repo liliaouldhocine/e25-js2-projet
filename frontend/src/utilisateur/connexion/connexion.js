@@ -1,10 +1,10 @@
 import { env } from "../../config/env.js";
 import "../../assets/styles/styles.scss";
 import "./connexion.scss";
-import getLink from "../../components/navigation/index.js";
+import getNavMenu from "../../components/navigation/index.js";
 import fetchWithAuth from "../../../api/api.js";
 
-getLink("login");
+getNavMenu("login");
 
 export function setupLoginForm() {
   const form = document.getElementById("loginForm");
@@ -66,7 +66,6 @@ export function setupLoginForm() {
       // Récupération du JWT
       const data = await response.json();
       const { token } = data;
-      console.log("Token reçu:", token);
 
       // Stockage du token
       storeJwtToken(token);

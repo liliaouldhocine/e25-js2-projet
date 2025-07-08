@@ -33,9 +33,27 @@
     "fullName": "Lilia Ould Hocine",
     "email": "liliaohl@gmail.com",
     "password": "$2b$12$RG.Y3RS.B4rb4SD9g4eNNuXdB2UUq8LgvgnZ0qjpVEjwIJiGb39z.",
-    "role": "user",
+    "role": "admin",
     "id": "0197e1b5-410e-7718-9c83-83b94c33c472",
     "createdAt": "2025-07-06T21:47:21.742Z",
     "updatedAt": "2025-07-06T21:47:21.742Z"
+  },
+  {
+    "fullName": "Bon l'éponge",
+    "email": "bob@bob.ca",
+    "password": "$2b$12$QkF7prUNHKUrsO4L7Qnpt.Z34dTvU/l4ynpl3AdB.V8eqlQPgGlSO",
+    "role": "user",
+    "id": "0197e82f-8f74-70e9-a91a-84fd1a797be7",
+    "createdAt": "2025-07-08T03:58:40.501Z",
+    "updatedAt": "2025-07-08T03:58:40.501Z"
+  },
+  {
+    "fullName": "test test",
+    "email": "test@test.test",
+    "password": "$2b$12$Rv0QAQhA9ZrAlgbeI7nGAuPeJHcpZhNm2yA0Cka0IEk25Xi8YGatG",
+    "role": "user",
+    "id": "0197e832-2d7e-7213-9520-dfc7da9f7289",
+    "createdAt": "2025-07-08T04:01:32.030Z",
+    "updatedAt": "2025-07-08T04:01:32.030Z"
   }
 ]

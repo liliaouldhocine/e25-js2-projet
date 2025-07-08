@@ -6,11 +6,11 @@ export function getCurrentUser() {
   try {
     // Décoder le payload sans vérification (attention: ne pas faire confiance à ces données pour la sécurité)
     const payload = JSON.parse(atob(token.split(".")[1]));
-    console.log(payload);
     return {
       id: payload.id,
       role: payload.role,
       email: payload.email,
+      fullName: payload.fullName,
     };
   } catch (error) {
     console.error("Error decoding token:", error);

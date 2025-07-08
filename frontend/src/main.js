@@ -3,10 +3,12 @@ import "./main.scss";
 import { env } from "./config/env.js";
 import { Alert } from "./components/alert/index.js";
 import { divRemove } from "./components/divRemove/index.js";
-import getLink from "./components/navigation/index.js";
+import getNavMenu from "./components/navigation/index.js";
+
+getNavMenu("index");
 
 const content = document.querySelector(".content");
-getLink("index");
+
 const displayProduits = (produits) => {
   const productsContainer = document.createElement("div");
   productsContainer.className = "products-container";
@@ -78,7 +80,7 @@ const addEditDeleteEvents = (container) => {
     });
   });
 };
-console.log("Toutes les variables Vite :", import.meta.env);
+
 const fetchProduits = async () => {
   try {
     const response = await fetch(`${env.BACKEND_PRODUCTS_URL}`);

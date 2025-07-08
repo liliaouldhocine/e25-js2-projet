@@ -1,15 +1,15 @@
-import { checkAuth } from "../../../api/api.js";
+import fetchWithAuth, { checkAuth } from "../../../api/api.js";
 import { env } from "../../config/env.js";
 import "../../assets/styles/styles.scss";
 import "./form.scss";
 
-import getLink from "../../components/navigation/index.js";
+import getNavMenu from "../../components/navigation/index.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const isAuthorized = await checkAuth(["admin"]);
   if (!isAuthorized) return;
 
-  getLink("addProduct");
+  getNavMenu("addProduct");
 
   const form = document.querySelector("form");
   const errorElement = document.querySelector("#errors");
@@ -21,7 +21,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     const params = new URL(window.location.href);
     productId = params.searchParams.get("id");
     if (productId) {
-      const response = await fetch(`${env.BACKEND_PRODUCTS_URL}/${productId}`);
+      const response = await fetchWithAuth(
+        `${env.BACKEND_PRODUCTS_URL}/${productId}`
+      );
       if (response.status < 300) {
         const produit = await response.json();
         fillForm(produit);
@@ -53,15 +55,18 @@ document.addEventListener("DOMContentLoaded", async () => {
         const json = JSON.stringify(produit);
         let response;
         if (productId) {
-          response = await fetch(`${env.BACKEND_PRODUCTS_URL}/${productId}`, {
-            method: "PUT",
-            body: json,
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
+          response = await fetchWithAuth(
+            `${env.BACKEND_PRODUCTS_URL}/${productId}`,
+            {
+              method: "PUT",
+              body: json,
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
         } else {
-          response = await fetch(env.BACKEND_PRODUCTS_URL, {
+          response = await fetchWithAuth(env.BACKEND_PRODUCTS_URL, {
             method: "POST",
             body: json,
             headers: {

@@ -59,10 +59,9 @@ const links = {
 
 const user = getCurrentUser();
 const isConnected = user;
-console.log(user);
 const isAdmin = user && user.role === "admin";
 
-const getLink = (page) => {
+const getNavMenu = (page) => {
   const menu = document.querySelector(`#menu-${page}`);
   const addProduct = `<li>
         <a href="${links[page].addProduct}" class="header-nav ${
@@ -87,7 +86,7 @@ const getLink = (page) => {
     </li>
     |
     <li>
-        <a href="" class="header-nav" id="btn-logout">Déonnexion</a>
+        <a href="" class="header-nav" id="btn-logout">Déconnexion</a>
     </li>`;
 
   menu.innerHTML = `
@@ -110,4 +109,4 @@ document.addEventListener("click", (event) => {
   }
 });
 
-export default getLink;
+export default getNavMenu;
